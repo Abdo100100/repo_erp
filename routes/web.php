@@ -17,10 +17,6 @@ Route::get('/', function () {
 
 
 
-Route::get('Tasks','Tasks@index');
-Route::get('Tasksc','Tasks@create');
-
-
 
 Route::get('Managers','managers@index');
 Route::get('Add','managers@create');
@@ -30,7 +26,6 @@ Route::post('update/{id}','managers@update');
 Route::get('delete/{id}','managers@destroy');
 Route::get('test/{id}','managers@test');
 
-Route::post('store_task','Tasks@store');
 
 
 
@@ -58,11 +53,9 @@ Route::get('prented/{id}','posts@chive');
 
 
 
-Route::post('delete_task/{id}','Tasks@destroy');
 
 Route::get('correct/{id}','posts@correct');
 
-Route::get('fin/{id}','Tasks@fin');
 
 
 Route::get('/corr','posts@correcter');
@@ -77,6 +70,7 @@ Route::get('/corrected','posts@corrected');
 
 
 Route::resource('categories', 'categories');
+Route::resource('sub_cat', 'sub_cat');
 
 
 
@@ -84,3 +78,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard','AdminController@dashboard');
+
+
+
+
+
+
+
+Route::get('Tasks','Tasks@index');
+Route::get('Tasksc','Tasks@create');
+Route::post('store_task','Tasks@store');
+Route::post('delete_task/{id}','Tasks@destroy');
+Route::get('fin/{id}','Tasks@fin');

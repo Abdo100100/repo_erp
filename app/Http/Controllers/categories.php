@@ -93,6 +93,10 @@ class categories extends Controller
      */
     public function destroy($id)
     {
-        return $id ;
+
+         $todo= Category::find($id);
+         $todo->delete();
+        return redirect('/categories')->with('success', 'تم المسح بنجاح');
+  
     }
 }

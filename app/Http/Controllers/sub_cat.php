@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\tasks_model;
-use App\User;
-
-class Tasks extends Controller
+use App\sub_cat_model;
+class sub_cat extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,8 @@ class Tasks extends Controller
      */
     public function index()
     {
-           $var=User::where('status',2)->orderBy('id' , 'DESC')->paginate(5);
-           return view('Tasks.index',compact('var')); 
+        $var=sub_cat_model::orderBy('id' , 'ASC')->paginate(5);
+        return view('sub_cat.index',compact('var'));
     }
 
     /**
@@ -26,7 +24,7 @@ class Tasks extends Controller
      */
     public function create()
     {
-   
+          return view('sub_cat.create');
     }
 
     /**
@@ -37,20 +35,16 @@ class Tasks extends Controller
      */
     public function store(Request $request)
     {
+         $request->validate([
+           'name'=>'required'
+        ]);
 
-        $task = new tasks_model();
+       $userin=new sub_cat_model;
+       $userin->sub_cat_name=$request->input('name');
+       $userin->save();
 
-
-        $task->title =$request->input('tit');
-        $task->body= $request->input('desk');
-        $task->save();
-
-        // $category = User::find(1     
-        /* <select name="users[]" multiple> </select>*/
-        //[1,2,3]
-        $task->user_tasks()->sync(request('users')); 
-
- return back()->with('success', 'New support ticket has been created! Wait sometime to get resolved');    }
+       return back()->with('success', 'تم الاضافة بنجاح');
+    }
 
     /**
      * Display the specified resource.
@@ -62,10 +56,6 @@ class Tasks extends Controller
     {
         //
     }
-
-
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -98,8 +88,9 @@ class Tasks extends Controller
      */
     public function destroy($id)
     {
-        $del=tasks_model::find($id);
-        $del->delete();
-        return redirect('/dashboard')->with('success', 'تم المسح بنجاح');
+          $todo= sub_cat_model::find($id);
+         $todo->delete();
+        return redirect('/sub_cat')->with('success', 'تم المسح بنجاح');
+  
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\sub_cat_model;
+
 use App\posts_db;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,8 +40,9 @@ class posts extends Controller
     public function create()
     {
 
+        $vu   = sub_cat_model::all();
         $var = Category::all();
-        return view('posts.create', compact('var'));
+        return view('posts.create', compact('var','vu'));
     }
 
     public function firstper()

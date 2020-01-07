@@ -45,10 +45,13 @@
 
 <label class="" >الفئه الفرعيه </label>
 <select name="sub_category">
+
+
     <option> اختار </option>
 
-    <option> مقال  </option>
-        <option> تحقيق</option>
+@foreach($vu as $vs)
+    <option>{{ $vs->sub_cat_name }}</option>
+@endforeach
 
 </select>
    

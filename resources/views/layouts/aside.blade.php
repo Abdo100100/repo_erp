@@ -30,17 +30,7 @@
 
                  
 
-            @if(Auth::user()->status == 2 || Auth::user()->status == 0 ||Auth::user()->status == 3)
-            <li class="nav-item">
-              <a href="{{ url('backchive') }}" class="nav-link">
-                <i class="nav-icon fa fa-calendar"></i>
-                <p>
-                ارشيف
-                  <span class="badge badge-users right">2</span>
-                </p>
-              </a>
-            </li>
-           @endif
+  
 
 
 @if(Auth::user()->status ==0  || Auth::user()->status ==1)
@@ -148,7 +138,16 @@
               </a>
             </li>
 
-     
+       <li class="nav-item">
+              <a href="{{ url('sub_cat') }}" class="nav-link">
+                <i class="nav-icon fa fa-calendar"></i>
+                <p>
+
+الفئات الفرعيه 
+                  <span class="badge badge-users right">2</span>
+                </p>
+              </a>
+            </li>
 @endif
 
 
@@ -249,6 +248,21 @@
 @endif
 
          
+
+
+                   @if(Auth::user()->status == 2 || Auth::user()->status == 0 ||Auth::user()->status == 3)
+            <li class="nav-item">
+              <a href="{{ url('backchive') }}" class="nav-link">
+                <i class="nav-icon fa fa-calendar"></i>
+                <p>
+                ارشيف
+                  <span class="badge badge-users right">2</span>
+                </p>
+              </a>
+            </li>
+           @endif
+
+           
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

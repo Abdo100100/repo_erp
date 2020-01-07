@@ -14,7 +14,8 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav mr-auto">
       <!-- Messages Dropdown Menu -->
-     
+           <li style="margin-left: 200px;"> <a href="">Edit Password </a></li>
+ 
       <li class="nav-item">
 
 <a href="{{ route('logout') }}"
@@ -28,5 +29,7 @@ onclick="event.preventDefault();
 
 
       </li>
+
+
     </ul>
   </nav>

@@ -9,7 +9,7 @@
 
 <center>
   <br>
-<form method="POST" action="{{ route('categories.store') }}">
+<form method="POST" action="{{ route('sub_cat.store') }}">
 
         {{ csrf_field() }}
 
@@ -25,7 +25,7 @@
 <div class="col-md-6">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">الفئات</h3>
+                <h3 class="card-title">الفئات الفرعيه</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -42,12 +42,12 @@
 
                     <tr>
                       <td>{{ $r->id }}.</td>
-                      <td>{{ $r->cat_name }}</td>
+                      <td>{{ $r->sub_cat_name }}</td>
                       <td>
 
 
 
-    <form method="POST" action="{{route('categories.destroy',$r->id)}}">
+    <form method="POST" action="{{route('sub_cat.destroy',$r->id)}}">
     {{ csrf_field() }}
     {{ method_field('DELETE') }}
                         <input class="btn btn-danger" type="submit" name="" value="حذف">
