@@ -350,4 +350,45 @@ class posts extends Controller
         return back()->with('success', 'تم  تفعيل هذا المقال بنجاح');
     }
 
+
+    public function printword($id)
+    {
+
+
+$post = posts_db::findOrFail($id);
+$content=$post->body;
+$title=$post->title;
+$content=strip_tags($content);
+
+$phpWord = new \PhpOffice\PhpWord\PhpWord();
+$section = $phpWord->addSection();
+
+$section->addText($title);
+$section->addText($content);
+
+
+$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+
+try{
+ $objWriter->save(storage_path('helloWorld.docx'));
+
+
+}catch(Exception $e){
+
+
+}
+        return response()->download(storage_path('helloWorld.docx'));
+
+    }
+
+
+
+
+/*public function getDownload(){
+
+        $file = public_path()."/files/info.pdf";
+        $headers = array('Content-Type: application/pdf',);
+        return Response::download($file, 'info.pdf',$headers);
+    }
+*/
 }

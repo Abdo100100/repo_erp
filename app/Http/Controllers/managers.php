@@ -132,4 +132,15 @@ $curTime = new \DateTime();
 
         return back()->with('success', 'Deleted successfully');
     }
+
+
+  public function passedit()
+    {
+
+
+          return view('passedit');
+
+    }
+
+
 }

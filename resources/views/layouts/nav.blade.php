@@ -14,7 +14,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav mr-auto">
       <!-- Messages Dropdown Menu -->
-           <li style="margin-left: 200px;"> <a href="">Edit Password </a></li>
+           <li style="margin-left: 200px;"> <a href="{{ url('passedit') }}">Edit Password </a></li>
  
       <li class="nav-item">
 

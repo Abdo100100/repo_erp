@@ -148,6 +148,21 @@
                 </p>
               </a>
             </li>
+
+
+           
+
+            <li class="nav-item">
+              <a href="{{ url('thper') }}" class="nav-link">
+                <i class="nav-icon fa fa-calendar"></i>
+                <p>
+المقالات المرفوضه
+              <span class="badge badge-users right"></span>
+                </p>
+              </a>
+            </li>
+
+
 @endif
 
 
@@ -160,15 +175,6 @@
 
 
 
-            <li class="nav-item">
-              <a href="{{ url('thper') }}" class="nav-link">
-                <i class="nav-icon fa fa-calendar"></i>
-                <p>
-المقالات المرفوضه
-              <span class="badge badge-users right"></span>
-                </p>
-              </a>
-            </li>
 
 
 @elseif(Auth::user()->status ==3 )
@@ -200,6 +206,19 @@
 
 @elseif(Auth::user()->status ==4 )
 
+
+<li class="nav-item">
+              <a href="{{ url('sper') }}" class="nav-link">
+                <i class="nav-icon fa fa-calendar"></i>
+                <p>
+
+المقالات المجازة
+               <span class="badge badge-users right"></span>
+                </p>
+              </a>
+            </li>
+
+            
   <li class="nav-item">
               <a href="{{ url('posts') }}" class="nav-link">
                 <i class="nav-icon fa fa-calendar"></i>
@@ -250,7 +269,7 @@
          
 
 
-                   @if(Auth::user()->status == 2 || Auth::user()->status == 0 ||Auth::user()->status == 3)
+                   @if(Auth::user()->status == 2 || Auth::user()->status == 0 ||Auth::user()->status == 3 || Auth::user()->status == 1)
             <li class="nav-item">
               <a href="{{ url('backchive') }}" class="nav-link">
                 <i class="nav-icon fa fa-calendar"></i>
@@ -262,7 +281,7 @@
             </li>
            @endif
 
-           
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

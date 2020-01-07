@@ -90,3 +90,10 @@ Route::get('Tasksc','Tasks@create');
 Route::post('store_task','Tasks@store');
 Route::post('delete_task/{id}','Tasks@destroy');
 Route::get('fin/{id}','Tasks@fin');
+
+
+
+Route::get('printword/{id}','posts@printword');
+
+Route::get('passedit','managers@passedit');
+

@@ -93,6 +93,8 @@
 
  <a href="{{ url('prented', $v->id  ) }}" class="btn  btn-info">ارشفه المقال</a>
 
+ <a href="{{ url('printword', $v->id  ) }}" class="btn  btn-success">تحميل المقال</a>
+
      @endif
 
 
