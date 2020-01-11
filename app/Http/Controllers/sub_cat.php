@@ -65,7 +65,7 @@ class sub_cat extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'edit';
     }
 
     /**
